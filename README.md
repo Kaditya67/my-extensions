@@ -23,12 +23,14 @@ chrome://extensions/  OR  edge://extensions/
 
 
 # Structure
+``` arduino
 any_extension/
 ├── manifest.json
 ├── popup.html
 ├── popup.js
 ├── styles.css
-└── icons/ (optional)
+└── icons/            # optional
+```
 
 # 🧩 Notes
 - Built using Vanilla JS, HTML, and CSS.
@@ -38,3 +40,5 @@ any_extension/
 
 # 🪪 License
 MIT — Free to use, modify, and distribute.
+
+---
