@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fear Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      html, body {
+        width: 400px;
+        height: 600px;
+        margin: 0;
+        padding: 16px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0f172a;
+        color: white;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #818cf8;
+      }
+
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      input[type="text"] {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        color: #111827;
+        background-color: #f1f5f9;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        outline: none;
+        transition: box-shadow 0.2s ease;
+      }
+
+      input::placeholder {
+        color: #6b7280;
+      }
+
+      input:focus {
+        box-shadow: 0 0 0 2px #818cf8;
+      }
+
+      button {
+        padding: 10px 16px;
+        background-color: #6366f1;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      button:hover {
+        background-color: #4f46e5;
+        transform: translateY(-1px);
+      }
+
+      #fearList {
+        max-height: 470px;
+        overflow-y: auto;
+        padding-right: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .fear-card {
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .fear-card .title {
+        font-weight: 600;
+        font-size: 1rem;
+        color: #e2e8f0;
+        margin-bottom: 8px;
+      }
+
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .timer-pill {
+        background-color: #334155;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #cbd5e1;
+      }
+
+      .status-tag {
+        padding: 2px 10px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: white;
+      }
+
+      .status-active {
+        background-color: #22c55e;
+      }
+
+      .status-paused {
+        background-color: #f59e0b;
+      }
+
+      .status-completed {
+        background-color: #6b7280;
+      }
+
+      .glow-active {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+        70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+      }
+
+      .fear-card .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .actions button {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        border-radius: 8px;
+      }
+
+      .pause {
+        background-color: #fbbf24; color: black;
+      }
+
+      .resume {
+        background-color: #3b82f6;
+      }
+
+      .complete {
+        background-color: #10b981;
+      }
+
+      .delete {
+        background-color: #ef4444;
+      }
+
+      #fearList::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      #fearList::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 6px;
+      }
+
+      #fearList::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>🚀 Fear Tracker</h1>
+
+    <div class="input-group">
+      <input type="text" id="fearInput" placeholder="What's your fear today?" />
+      <button id="addFearBtn">Add</button>
+    </div>
+
+    <div id="fearList">
+      <!-- Cards will be injected here -->
+    </div>
+
+    <script src="utils/storage.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

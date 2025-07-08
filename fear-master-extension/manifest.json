@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Fear Tracker",
+  "version": "1.0",
+  "description": "Track and overcome your daily fears.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  }
+}
