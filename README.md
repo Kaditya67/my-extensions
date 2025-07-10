@@ -41,4 +41,5 @@ any_extension/
 # 🪪 License
 MIT — Free to use, modify, and distribute.
 
+## Free for Everyone
 ---
